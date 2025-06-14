@@ -1,53 +1,54 @@
-"use client"
+"use client";
 
-import { useCallback, useState } from "react"
-import { Upload, File, CheckCircle, AlertCircle } from "lucide-react"
-import GlassCard from "../common/GlassCard"
+import { AlertCircle, CheckCircle, File, Upload } from "lucide-react";
+import { useCallback, useState } from "react";
+import GlassCard from "../common/GlassCard";
 
 const FileUpload = ({ onFileUpload, acceptedTypes = ".json,.yaml,.yml" }) => {
-  const [dragActive, setDragActive] = useState(false)
-  const [uploadStatus, setUploadStatus] = useState(null)
+  const [dragActive, setDragActive] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState(null);
 
   const handleDrag = useCallback((e) => {
-    e.preventDefault()
-    e.stopPropagation()
+    e.preventDefault();
+    e.stopPropagation();
     if (e.type === "dragenter" || e.type === "dragover") {
-      setDragActive(true)
+      setDragActive(true);
     } else if (e.type === "dragleave") {
-      setDragActive(false)
+      setDragActive(false);
     }
-  }, [])
+  }, []);
 
   const handleDrop = useCallback((e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setDragActive(false)
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
 
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      handleFile(e.dataTransfer.files[0])
+      handleFile(e.dataTransfer.files[0]);
     }
-  }, [])
+  }, []);
 
   const handleChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (e.target.files && e.target.files[0]) {
-      handleFile(e.target.files[0])
+      handleFile(e.target.files[0]);
     }
-  }
+  };
 
   const handleFile = (file) => {
-    const validTypes = ["application/json", "text/yaml", "application/x-yaml"]
-    const validExtensions = [".json", ".yaml", ".yml"]
+    const validTypes = ["application/json", "text/yaml", "application/x-yaml"];
+    const validExtensions = [".json", ".yaml", ".yml"];
 
     const isValidType =
-      validTypes.includes(file.type) || validExtensions.some((ext) => file.name.toLowerCase().endsWith(ext))
+      validTypes.includes(file.type) ||
+      validExtensions.some((ext) => file.name.toLowerCase().endsWith(ext));
 
     if (!isValidType) {
       setUploadStatus({
         type: "error",
         message: "Please upload a valid JSON or YAML file",
-      })
-      return
+      });
+      return;
     }
 
     if (file.size > 10 * 1024 * 1024) {
@@ -55,28 +56,34 @@ const FileUpload = ({ onFileUpload, acceptedTypes = ".json,.yaml,.yml" }) => {
       setUploadStatus({
         type: "error",
         message: "File size must be less than 10MB",
-      })
-      return
+      });
+      return;
     }
 
     setUploadStatus({
       type: "success",
       message: `File "${file.name}" uploaded successfully`,
-    })
+    });
 
-    onFileUpload(file)
-  }
+    onFileUpload(file);
+  };
 
   return (
     <GlassCard className="p-8">
       <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold text-white mb-2">Upload OpenAPI Specification</h3>
-        <p className="text-white/70">Upload your OpenAPI specification file (JSON or YAML format)</p>
+        <h3 className="text-2xl font-bold theme-text-primary mb-2">
+          Upload OpenAPI Specification
+        </h3>
+        <p className="theme-text-secondary">
+          Upload your OpenAPI specification file (JSON or YAML format)
+        </p>
       </div>
 
       <div
         className={`relative border-2 border-dashed rounded-xl p-12 text-center transition-all duration-300 ${
-          dragActive ? "border-blue-400 bg-blue-400/10" : "border-white/30 hover:border-white/50"
+          dragActive
+            ? "border-blue-400 bg-blue-400/10"
+            : "border-white/30 hover:border-white/50"
         }`}
         onDragEnter={handleDrag}
         onDragLeave={handleDrag}
@@ -96,10 +103,13 @@ const FileUpload = ({ onFileUpload, acceptedTypes = ".json,.yaml,.yml" }) => {
           </div>
 
           <div>
-            <p className="text-lg font-medium text-white mb-2">
-              Drop your OpenAPI file here, or <span className="text-blue-400 underline">browse</span>
+            <p className="text-lg font-medium theme-text-primary mb-2">
+              Drop your OpenAPI file here, or{" "}
+              <span className="text-blue-400 underline">browse</span>
             </p>
-            <p className="text-sm text-white/60">Supports JSON and YAML formats (max 10MB)</p>
+            <p className="text-sm theme-text-muted">
+              Supports JSON and YAML formats (max 10MB)
+            </p>
           </div>
         </div>
       </div>
@@ -117,7 +127,13 @@ const FileUpload = ({ onFileUpload, acceptedTypes = ".json,.yaml,.yml" }) => {
           ) : (
             <AlertCircle className="w-5 h-5 text-red-400" />
           )}
-          <p className={`text-sm ${uploadStatus.type === "success" ? "text-green-400" : "text-red-400"}`}>
+          <p
+            className={`text-sm ${
+              uploadStatus.type === "success"
+                ? "text-green-400"
+                : "text-red-400"
+            }`}
+          >
             {uploadStatus.message}
           </p>
         </div>
@@ -127,27 +143,37 @@ const FileUpload = ({ onFileUpload, acceptedTypes = ".json,.yaml,.yml" }) => {
         <div className="flex items-center gap-3 p-4 bg-white/5 rounded-lg">
           <File className="w-5 h-5 text-blue-400" />
           <div>
-            <p className="text-sm font-medium text-white">JSON Format</p>
-            <p className="text-xs text-white/60">OpenAPI 3.0+ specification</p>
+            <p className="text-sm font-medium theme-text-primary">
+              JSON Format
+            </p>
+            <p className="text-xs theme-text-muted">
+              OpenAPI 3.0+ specification
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-3 p-4 bg-white/5 rounded-lg">
           <File className="w-5 h-5 text-green-400" />
           <div>
-            <p className="text-sm font-medium text-white">YAML Format</p>
-            <p className="text-xs text-white/60">OpenAPI 3.0+ specification</p>
+            <p className="text-sm font-medium theme-text-primary">
+              YAML Format
+            </p>
+            <p className="text-xs theme-text-muted">
+              OpenAPI 3.0+ specification
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-3 p-4 bg-white/5 rounded-lg">
           <CheckCircle className="w-5 h-5 text-purple-400" />
           <div>
-            <p className="text-sm font-medium text-white">Auto-Validation</p>
-            <p className="text-xs text-white/60">Instant format checking</p>
+            <p className="text-sm font-medium theme-text-primary">
+              Auto-Validation
+            </p>
+            <p className="text-xs theme-text-muted">Instant format checking</p>
           </div>
         </div>
       </div>
     </GlassCard>
-  )
-}
+  );
+};
 
-export default FileUpload
+export default FileUpload;

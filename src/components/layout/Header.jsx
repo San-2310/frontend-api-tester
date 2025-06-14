@@ -21,8 +21,12 @@ const Header = ({ onNavigate }) => {
           onClick={() => onNavigate("home")}
           className="flex items-center gap-3"
         >
-          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">AT</span>
+          <div className="w-24 h-6 rounded-lg flex items-center justify-center overflow-hidden">
+            <img
+              src={theme === "dark" ? "/logo_white.png" : "/logo_dark.png"}
+              alt="API Tester Logo"
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="text-xl font-bold theme-text-primary">
             API Tester

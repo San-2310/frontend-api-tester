@@ -72,10 +72,10 @@ const ConfusionMatrix = ({ testResults }) => {
   return (
     <GlassCard className="p-6">
       <div className="mb-6">
-        <h3 className="text-xl font-semibold text-white mb-2">
+        <h3 className="text-xl font-semibold theme-text-primary mb-2">
           Test Classification Matrix
         </h3>
-        <p className="text-white/60 text-sm">
+        <p className="theme-text-muted text-sm">
           Analysis of test prediction accuracy
         </p>
       </div>
@@ -123,14 +123,14 @@ const ConfusionMatrix = ({ testResults }) => {
                     className="w-4 h-4 rounded"
                     style={{ backgroundColor: item.color }}
                   />
-                  <span className="text-white font-medium text-sm">
+                  <span className="theme-text-primary font-medium text-sm">
                     {item.name}
                   </span>
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">
+                <div className="text-2xl font-bold theme-text-primary mb-1">
                   {item.value}
                 </div>
-                <p className="text-white/60 text-xs">{item.description}</p>
+                <p className="theme-text-muted text-xs">{item.description}</p>
               </div>
             ))}
           </div>
@@ -145,7 +145,7 @@ const ConfusionMatrix = ({ testResults }) => {
                 {accuracy}%
               </span>
             </div>
-            <p className="text-white/60 text-sm">
+            <p className="theme-text-muted text-sm">
               Overall test classification accuracy
             </p>
             <div className="w-full bg-white/10 rounded-full h-2 mt-3">
@@ -163,7 +163,7 @@ const ConfusionMatrix = ({ testResults }) => {
                 {precision}%
               </span>
             </div>
-            <p className="text-white/60 text-sm">
+            <p className="theme-text-muted text-sm">
               Proportion of true positives
             </p>
             <div className="w-full bg-white/10 rounded-full h-2 mt-3">
@@ -181,7 +181,7 @@ const ConfusionMatrix = ({ testResults }) => {
                 {recall}%
               </span>
             </div>
-            <p className="text-white/60 text-sm">
+            <p className="theme-text-muted text-sm">
               Proportion of actual positives identified
             </p>
             <div className="w-full bg-white/10 rounded-full h-2 mt-3">
@@ -193,21 +193,21 @@ const ConfusionMatrix = ({ testResults }) => {
           </div>
 
           <div className="p-4 bg-white/5 border border-white/10 rounded-lg">
-            <h4 className="text-white font-medium mb-3">
+            <h4 className="theme-text-primary font-medium mb-3">
               Classification Summary
             </h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-white/60">Total Tests:</span>
-                <span className="text-white">{total}</span>
+                <span className="theme-text-muted">Total Tests:</span>
+                <span className="theme-text-primary">{total}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-white/60">Correctly Classified:</span>
-                <span className="text-white">{tp + tn}</span>
+                <span className="theme-text-muted">Correctly Classified:</span>
+                <span className="theme-text-primary">{tp + tn}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-white/60">Misclassified:</span>
-                <span className="text-white">{fp + fn}</span>
+                <span className="theme-text-muted">Misclassified:</span>
+                <span className="theme-text-primary">{fp + fn}</span>
               </div>
             </div>
           </div>

@@ -112,8 +112,10 @@ const Settings = ({ onNavigate }) => {
       <div className="pt-32 pb-12 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-white mb-4">Settings</h1>
-            <p className="text-white/70 text-lg">
+            <h1 className="text-4xl font-bold theme-text-primary mb-4">
+              Settings
+            </h1>
+            <p className="theme-text-secondary text-lg">
               Customize your API testing experience
             </p>
           </div>
@@ -123,16 +125,18 @@ const Settings = ({ onNavigate }) => {
             <GlassCard className="p-8">
               <div className="flex items-center gap-3 mb-6">
                 <Palette className="w-6 h-6 text-blue-400" />
-                <h2 className="text-2xl font-bold text-white">Appearance</h2>
+                <h2 className="text-2xl font-bold theme-text-primary">
+                  Appearance
+                </h2>
               </div>
 
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium text-white mb-1">
+                    <h3 className="text-lg font-medium theme-text-primary mb-1">
                       Theme
                     </h3>
-                    <p className="text-white/60 text-sm">
+                    <p className="theme-text-muted text-sm">
                       Choose your preferred color scheme
                     </p>
                   </div>
@@ -155,7 +159,7 @@ const Settings = ({ onNavigate }) => {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-medium text-white mb-3">
+                  <h3 className="text-lg font-medium theme-text-primary mb-3">
                     Accent Color
                   </h3>
                   <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
@@ -183,10 +187,10 @@ const Settings = ({ onNavigate }) => {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium text-white mb-1">
+                    <h3 className="text-lg font-medium theme-text-primary mb-1">
                       Font Size
                     </h3>
-                    <p className="text-white/60 text-sm">
+                    <p className="theme-text-muted text-sm">
                       Adjust text size for better readability
                     </p>
                   </div>
@@ -195,7 +199,7 @@ const Settings = ({ onNavigate }) => {
                     onChange={(e) =>
                       handleSettingChange("fontSize", e.target.value)
                     }
-                    className="glass-input px-4 py-2 text-white"
+                    className="glass-input px-4 py-2"
                   >
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
@@ -205,10 +209,10 @@ const Settings = ({ onNavigate }) => {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium text-white mb-1">
+                    <h3 className="text-lg font-medium theme-text-primary mb-1">
                       Animations
                     </h3>
-                    <p className="text-white/60 text-sm">
+                    <p className="theme-text-muted text-sm">
                       Enable or disable UI animations
                     </p>
                   </div>
@@ -234,14 +238,14 @@ const Settings = ({ onNavigate }) => {
             <GlassCard className="p-8">
               <div className="flex items-center gap-3 mb-6">
                 <Zap className="w-6 h-6 text-green-400" />
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-bold theme-text-primary">
                   Testing Configuration
                 </h2>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block theme-text-secondary text-sm font-medium mb-2">
                     Request Timeout (seconds)
                   </label>
                   <input
@@ -255,12 +259,12 @@ const Settings = ({ onNavigate }) => {
                         Number.parseInt(e.target.value)
                       )
                     }
-                    className="glass-input w-full px-4 py-3 text-white"
+                    className="glass-input w-full px-4 py-3"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block theme-text-secondary text-sm font-medium mb-2">
                     Max Retries
                   </label>
                   <input
@@ -274,12 +278,12 @@ const Settings = ({ onNavigate }) => {
                         Number.parseInt(e.target.value)
                       )
                     }
-                    className="glass-input w-full px-4 py-3 text-white"
+                    className="glass-input w-full px-4 py-3"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block theme-text-secondary text-sm font-medium mb-2">
                     Concurrent Requests
                   </label>
                   <input
@@ -293,16 +297,16 @@ const Settings = ({ onNavigate }) => {
                         Number.parseInt(e.target.value)
                       )
                     }
-                    className="glass-input w-full px-4 py-3 text-white"
+                    className="glass-input w-full px-4 py-3"
                   />
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium text-white mb-1">
+                    <h3 className="text-lg font-medium theme-text-primary mb-1">
                       Verbose Output
                     </h3>
-                    <p className="text-white/60 text-sm">
+                    <p className="theme-text-muted text-sm">
                       Show detailed test information
                     </p>
                   </div>
@@ -325,17 +329,17 @@ const Settings = ({ onNavigate }) => {
             <GlassCard className="p-8">
               <div className="flex items-center gap-3 mb-6">
                 <Database className="w-6 h-6 text-purple-400" />
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-bold theme-text-primary">
                   Data Management
                 </h2>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-lg font-medium text-white mb-2">
+                  <h3 className="text-lg font-medium theme-text-primary mb-2">
                     Session Data
                   </h3>
-                  <p className="text-white/60 text-sm mb-4">
+                  <p className="theme-text-muted text-sm mb-4">
                     Clear all stored test sessions and results
                   </p>
                   <Button variant="danger" onClick={clearSessionData}>
@@ -344,10 +348,10 @@ const Settings = ({ onNavigate }) => {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-medium text-white mb-2">
+                  <h3 className="text-lg font-medium theme-text-primary mb-2">
                     Settings Backup
                   </h3>
-                  <p className="text-white/60 text-sm mb-4">
+                  <p className="theme-text-muted text-sm mb-4">
                     Export or import your configuration
                   </p>
                   <div className="flex gap-3">
@@ -368,7 +372,9 @@ const Settings = ({ onNavigate }) => {
             <GlassCard className="p-8">
               <div className="flex items-center gap-3 mb-6">
                 <User className="w-6 h-6 text-orange-400" />
-                <h2 className="text-2xl font-bold text-white">Account</h2>
+                <h2 className="text-2xl font-bold theme-text-primary">
+                  Account
+                </h2>
               </div>
 
               <div className="space-y-6">
@@ -379,10 +385,10 @@ const Settings = ({ onNavigate }) => {
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-white">
+                    <h3 className="text-lg font-medium theme-text-primary">
                       {user?.name}
                     </h3>
-                    <p className="text-white/60">{user?.email}</p>
+                    <p className="theme-text-muted">{user?.email}</p>
                   </div>
                 </div>
 

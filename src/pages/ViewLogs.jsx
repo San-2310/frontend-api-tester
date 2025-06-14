@@ -69,10 +69,10 @@ const ViewLogs = ({ onNavigate }) => {
       <div className="pt-32 pb-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-4xl font-bold theme-text-primary mb-4">
               Test Session History
             </h1>
-            <p className="text-white/70 text-lg">
+            <p className="theme-text-secondary text-lg">
               View and manage your previous API testing sessions
             </p>
           </div>
@@ -81,21 +81,21 @@ const ViewLogs = ({ onNavigate }) => {
           <GlassCard className="p-6 mb-8">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 theme-text-muted" />
                 <input
                   type="text"
                   placeholder="Search by API name..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="glass-input w-full pl-12 pr-4 py-3 text-white placeholder-white/50"
+                  className="glass-input w-full pl-12 pr-4 py-3"
                 />
               </div>
               <div className="flex items-center gap-3">
-                <Filter className="w-5 h-5 text-white/50" />
+                <Filter className="w-5 h-5 theme-text-muted" />
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="glass-input px-4 py-3 text-white"
+                  className="glass-input px-4 py-3"
                 >
                   <option value="all">All Sessions</option>
                   <option value="passed">Successful (≥80%)</option>
@@ -109,12 +109,12 @@ const ViewLogs = ({ onNavigate }) => {
           {filteredSessions.length === 0 ? (
             <GlassCard className="p-12 text-center">
               <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-white/50" />
+                <Clock className="w-8 h-8 theme-text-muted" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
+              <h3 className="text-xl font-semibold theme-text-primary mb-2">
                 No Test Sessions Found
               </h3>
-              <p className="text-white/60 mb-6">
+              <p className="theme-text-muted mb-6">
                 {searchTerm || filterStatus !== "all"
                   ? "Try adjusting your search or filter criteria"
                   : "Start by running your first API test to see results here"}
@@ -136,10 +136,10 @@ const ViewLogs = ({ onNavigate }) => {
                         </span>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white">
+                        <h3 className="text-lg font-semibold theme-text-primary">
                           {session.specName}
                         </h3>
-                        <div className="flex items-center gap-4 text-sm text-white/60">
+                        <div className="flex items-center gap-4 text-sm theme-text-muted">
                           <div className="flex items-center gap-1">
                             <Calendar className="w-4 h-4" />
                             {formatDate(session.timestamp)}
@@ -178,13 +178,15 @@ const ViewLogs = ({ onNavigate }) => {
                           {session.results.summary.total}
                         </span>
                       </div>
-                      <span className="text-white/70 text-sm">Total Tests</span>
+                      <span className="theme-text-secondary text-sm">
+                        Total Tests
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
                         <CheckCircle className="w-4 h-4 text-green-400" />
                       </div>
-                      <span className="text-white/70 text-sm">
+                      <span className="theme-text-secondary text-sm">
                         {session.results.summary.passed} Passed
                       </span>
                     </div>
@@ -192,7 +194,7 @@ const ViewLogs = ({ onNavigate }) => {
                       <div className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center">
                         <XCircle className="w-4 h-4 text-red-400" />
                       </div>
-                      <span className="text-white/70 text-sm">
+                      <span className="theme-text-secondary text-sm">
                         {session.results.summary.failed} Failed
                       </span>
                     </div>
@@ -200,14 +202,14 @@ const ViewLogs = ({ onNavigate }) => {
                       <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
                         <Clock className="w-4 h-4 text-purple-400" />
                       </div>
-                      <span className="text-white/70 text-sm">
+                      <span className="theme-text-secondary text-sm">
                         {session.duration}s Duration
                       </span>
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                    <div className="flex items-center gap-2 text-sm text-white/60">
+                    <div className="flex items-center gap-2 text-sm theme-text-muted">
                       <span>Session ID: {session.id}</span>
                     </div>
                     <div className="flex items-center gap-2">
