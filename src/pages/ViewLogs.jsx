@@ -108,7 +108,7 @@ const ViewLogs = ({ onNavigate }) => {
           {/* Sessions List */}
           {filteredSessions.length === 0 ? (
             <GlassCard className="p-12 text-center">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 theme-bg-overlay rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 theme-text-muted" />
               </div>
               <h3 className="text-xl font-semibold theme-text-primary mb-2">
@@ -126,7 +126,7 @@ const ViewLogs = ({ onNavigate }) => {
               {filteredSessions.map((session) => (
                 <GlassCard
                   key={session.id}
-                  className="p-6 hover:bg-white/10 transition-all"
+                  className="p-6 theme-bg-overlay-hover transition-all"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-4">
@@ -208,7 +208,7 @@ const ViewLogs = ({ onNavigate }) => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                  <div className="flex items-center justify-between pt-4 border-t theme-border-secondary">
                     <div className="flex items-center gap-2 text-sm theme-text-muted">
                       <span>Session ID: {session.id}</span>
                     </div>

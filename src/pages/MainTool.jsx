@@ -233,7 +233,7 @@ const MainTool = ({ onNavigate }) => {
                   ([path, methods]) => (
                     <div
                       key={path}
-                      className="border border-white/20 rounded-lg p-4"
+                      className="border theme-border-secondary rounded-lg p-4"
                     >
                       <h4 className="theme-text-primary font-medium mb-3">
                         {path}
@@ -242,11 +242,11 @@ const MainTool = ({ onNavigate }) => {
                         {Object.entries(methods).map(([method, details]) => (
                           <label
                             key={`${path}-${method}`}
-                            className="flex items-center gap-3 p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10"
+                            className="flex items-center gap-3 p-3 theme-bg-overlay theme-bg-overlay-hover rounded-lg cursor-pointer"
                           >
                             <input
                               type="checkbox"
-                              className="w-4 h-4 text-blue-500 bg-transparent border-white/30 rounded"
+                              className="w-4 h-4 text-blue-500 bg-transparent border theme-border-secondary rounded"
                               defaultChecked
                             />
                             <span
@@ -319,7 +319,7 @@ const MainTool = ({ onNavigate }) => {
                   </div>
 
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <div className="text-center p-4 bg-white/5 rounded-lg">
+                    <div className="text-center p-4 theme-bg-overlay rounded-lg">
                       <div className="text-3xl font-bold theme-text-primary mb-1">
                         {state.testResults.summary.total}
                       </div>
@@ -425,7 +425,7 @@ const MainTool = ({ onNavigate }) => {
                     className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all ${
                       state.currentStep >= step.id
                         ? "bg-blue-500 border-blue-500 text-white"
-                        : "border-white/30 theme-text-muted"
+                        : "theme-border-secondary theme-text-muted"
                     }`}
                   >
                     {step.id}

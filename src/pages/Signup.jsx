@@ -186,7 +186,7 @@ const Signup = ({ onNavigate }) => {
             <div className="flex items-start">
               <input
                 type="checkbox"
-                className="w-4 h-4 text-blue-500 bg-transparent border-white/30 rounded focus:ring-blue-500 mt-1"
+                className="w-4 h-4 text-blue-500 bg-transparent border theme-border-secondary rounded focus:ring-blue-500 mt-1"
                 required
               />
               <span className="ml-2 theme-text-secondary text-sm">

@@ -170,7 +170,7 @@ const Settings = ({ onNavigate }) => {
                         className={`w-12 h-12 rounded-lg border-2 transition-all duration-200 relative ${
                           accentColor === color.value
                             ? "border-white scale-110 shadow-lg"
-                            : "border-white/30 hover:border-white/60 hover:scale-105"
+                            : "theme-border-secondary hover:theme-border-primary hover:scale-105"
                         }`}
                         style={{ backgroundColor: color.value }}
                         title={color.name}
@@ -228,7 +228,7 @@ const Settings = ({ onNavigate }) => {
                       }
                       className="sr-only peer"
                     />
-                    <div className="w-11 h-6 bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                    <div className="w-11 h-6 theme-bg-overlay peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
                   </label>
                 </div>
               </div>
@@ -319,7 +319,7 @@ const Settings = ({ onNavigate }) => {
                       }
                       className="sr-only peer"
                     />
-                    <div className="w-11 h-6 bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500"></div>
+                    <div className="w-11 h-6 theme-bg-overlay peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500"></div>
                   </label>
                 </div>
               </div>
@@ -392,7 +392,7 @@ const Settings = ({ onNavigate }) => {
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-white/10">
+                <div className="pt-6 border-t theme-border-secondary">
                   <Button variant="danger" onClick={resetToDefaults}>
                     <RotateCcw className="w-4 h-4" />
                     Reset All Settings

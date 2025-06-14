@@ -116,7 +116,7 @@ const ConfusionMatrix = ({ testResults }) => {
             {matrixData.map((item, index) => (
               <div
                 key={index}
-                className="p-4 bg-white/5 rounded-lg border border-white/10"
+                className="p-4 theme-bg-overlay rounded-lg border theme-border-secondary"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <div
@@ -148,7 +148,7 @@ const ConfusionMatrix = ({ testResults }) => {
             <p className="theme-text-muted text-sm">
               Overall test classification accuracy
             </p>
-            <div className="w-full bg-white/10 rounded-full h-2 mt-3">
+            <div className="w-full theme-bg-overlay rounded-full h-2 mt-3">
               <div
                 className="bg-green-400 h-2 rounded-full transition-all duration-500"
                 style={{ width: `${accuracy}%` }}
@@ -166,7 +166,7 @@ const ConfusionMatrix = ({ testResults }) => {
             <p className="theme-text-muted text-sm">
               Proportion of true positives
             </p>
-            <div className="w-full bg-white/10 rounded-full h-2 mt-3">
+            <div className="w-full theme-bg-overlay rounded-full h-2 mt-3">
               <div
                 className="bg-blue-400 h-2 rounded-full transition-all duration-500"
                 style={{ width: `${precision}%` }}
@@ -184,7 +184,7 @@ const ConfusionMatrix = ({ testResults }) => {
             <p className="theme-text-muted text-sm">
               Proportion of actual positives identified
             </p>
-            <div className="w-full bg-white/10 rounded-full h-2 mt-3">
+            <div className="w-full theme-bg-overlay rounded-full h-2 mt-3">
               <div
                 className="bg-purple-400 h-2 rounded-full transition-all duration-500"
                 style={{ width: `${recall}%` }}
@@ -192,7 +192,7 @@ const ConfusionMatrix = ({ testResults }) => {
             </div>
           </div>
 
-          <div className="p-4 bg-white/5 border border-white/10 rounded-lg">
+          <div className="p-4 theme-bg-overlay border theme-border-secondary rounded-lg">
             <h4 className="theme-text-primary font-medium mb-3">
               Classification Summary
             </h4>

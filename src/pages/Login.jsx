@@ -118,7 +118,7 @@ const Login = ({ onNavigate }) => {
               <label className="flex items-center">
                 <input
                   type="checkbox"
-                  className="w-4 h-4 text-blue-500 bg-transparent border-white/30 rounded focus:ring-blue-500"
+                  className="w-4 h-4 text-blue-500 bg-transparent border theme-border-secondary rounded focus:ring-blue-500"
                 />
                 <span className="ml-2 theme-text-secondary text-sm">
                   Remember me

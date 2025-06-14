@@ -83,7 +83,7 @@ const FileUpload = ({ onFileUpload, acceptedTypes = ".json,.yaml,.yml" }) => {
         className={`relative border-2 border-dashed rounded-xl p-12 text-center transition-all duration-300 ${
           dragActive
             ? "border-blue-400 bg-blue-400/10"
-            : "border-white/30 hover:border-white/50"
+            : "theme-border-secondary hover:theme-border-primary"
         }`}
         onDragEnter={handleDrag}
         onDragLeave={handleDrag}
@@ -140,7 +140,7 @@ const FileUpload = ({ onFileUpload, acceptedTypes = ".json,.yaml,.yml" }) => {
       )}
 
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="flex items-center gap-3 p-4 bg-white/5 rounded-lg">
+        <div className="flex items-center gap-3 p-4 theme-bg-overlay rounded-lg">
           <File className="w-5 h-5 text-blue-400" />
           <div>
             <p className="text-sm font-medium theme-text-primary">
@@ -151,7 +151,7 @@ const FileUpload = ({ onFileUpload, acceptedTypes = ".json,.yaml,.yml" }) => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-3 p-4 bg-white/5 rounded-lg">
+        <div className="flex items-center gap-3 p-4 theme-bg-overlay rounded-lg">
           <File className="w-5 h-5 text-green-400" />
           <div>
             <p className="text-sm font-medium theme-text-primary">
@@ -162,7 +162,7 @@ const FileUpload = ({ onFileUpload, acceptedTypes = ".json,.yaml,.yml" }) => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-3 p-4 bg-white/5 rounded-lg">
+        <div className="flex items-center gap-3 p-4 theme-bg-overlay rounded-lg">
           <CheckCircle className="w-5 h-5 text-purple-400" />
           <div>
             <p className="text-sm font-medium theme-text-primary">

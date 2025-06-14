@@ -14,6 +14,10 @@
   --text-secondary: rgba(255, 255, 255, 0.7);
   --text-muted: rgba(255, 255, 255, 0.5);
   --bg-gradient: linear-gradient(45deg, #120f23, #1a1a2e, #16213e, #0f0f23);
+  --border-primary: rgba(255, 255, 255, 0.2);
+  --border-secondary: rgba(255, 255, 255, 0.1);
+  --bg-overlay: rgba(255, 255, 255, 0.05);
+  --bg-overlay-hover: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="light"] {
@@ -29,6 +33,10 @@
   --text-secondary: #5d5347;
   --text-muted: #8b7d6b;
   --bg-gradient: linear-gradient(45deg, #faf8f5, #f5f1eb, #ede7dd, #f8f4ef);
+  --border-primary: rgba(139, 125, 107, 0.3);
+  --border-secondary: rgba(139, 125, 107, 0.15);
+  --bg-overlay: rgba(139, 125, 107, 0.1);
+  --bg-overlay-hover: rgba(139, 125, 107, 0.2);
 }
 
 * {
@@ -244,4 +252,38 @@
 
 [data-theme="light"] .theme-text-muted {
   color: #8b7d6b;
+}
+
+/* Theme-based border colors */
+[data-theme="dark"] .theme-border-primary {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .theme-border-secondary {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .theme-border-primary {
+  border-color: rgba(139, 125, 107, 0.3);
+}
+
+[data-theme="light"] .theme-border-secondary {
+  border-color: rgba(139, 125, 107, 0.15);
+}
+
+/* Theme-based background overlays */
+[data-theme="dark"] .theme-bg-overlay {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .theme-bg-overlay-hover:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .theme-bg-overlay {
+  background-color: rgba(139, 125, 107, 0.1);
+}
+
+[data-theme="light"] .theme-bg-overlay-hover:hover {
+  background-color: rgba(139, 125, 107, 0.2);
 }
