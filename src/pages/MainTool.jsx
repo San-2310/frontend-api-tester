@@ -15,7 +15,6 @@ const MainTool = ({ onNavigate }) => {
   const { isAuthenticated } = useAuth();
   const { state, actions } = useAppState();
   const [baseUrl, setBaseUrl] = useState("");
-  const [selectedRoutes, setSelectedRoutes] = useState([]);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -44,7 +43,6 @@ const MainTool = ({ onNavigate }) => {
   ];
 
   const handleFileUpload = (file) => {
-    // Simulate file processing
     const mockSpec = {
       info: { title: "Sample API", version: "1.0.0" },
       servers: [{ url: "https://api.example.com" }],
@@ -90,7 +88,6 @@ const MainTool = ({ onNavigate }) => {
   const handleRunTests = async () => {
     actions.setLoading(true);
 
-    // Simulate test execution
     setTimeout(() => {
       const mockResults = {
         summary: {
@@ -140,7 +137,6 @@ const MainTool = ({ onNavigate }) => {
       actions.setTestResults(mockResults);
       actions.setLoading(false);
 
-      // Add to session history
       const session = {
         id: Date.now(),
         timestamp: new Date().toISOString(),
@@ -160,28 +156,28 @@ const MainTool = ({ onNavigate }) => {
       case 2:
         return (
           <GlassCard className="p-8">
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="text-2xl font-bold theme-text-primary mb-6">
               Configure Base URL
             </h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-white/80 text-sm font-medium mb-2">
+                <label className="block theme-text-secondary text-sm font-medium mb-2">
                   API Base URL
                 </label>
                 <input
                   type="url"
                   value={baseUrl}
                   onChange={(e) => setBaseUrl(e.target.value)}
-                  className="glass-input w-full px-4 py-3 text-white placeholder-white/50"
+                  className="glass-input w-full px-4 py-3"
                   placeholder="https://api.example.com"
                 />
-                <p className="text-white/60 text-sm mt-2">
+                <p className="theme-text-muted text-sm mt-2">
                   This URL will be used as the base for all API requests
                 </p>
               </div>
               {state.uploadedSpec && (
                 <div className="p-4 bg-blue-500/20 border border-blue-500/30 rounded-lg">
-                  <h4 className="text-white font-medium mb-2">
+                  <h4 className="theme-text-primary font-medium mb-2">
                     Detected from Specification:
                   </h4>
                   <p className="text-blue-400 text-sm">
@@ -196,15 +192,15 @@ const MainTool = ({ onNavigate }) => {
       case 3:
         return (
           <GlassCard className="p-8">
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="text-2xl font-bold theme-text-primary mb-6">
               Security Configuration
             </h3>
             <div className="space-y-6">
               <div>
-                <label className="block text-white/80 text-sm font-medium mb-2">
+                <label className="block theme-text-secondary text-sm font-medium mb-2">
                   Authentication Type
                 </label>
-                <select className="glass-input w-full px-4 py-3 text-white">
+                <select className="glass-input w-full px-4 py-3">
                   <option value="">No Authentication</option>
                   <option value="bearer">Bearer Token</option>
                   <option value="apikey">API Key</option>
@@ -212,12 +208,12 @@ const MainTool = ({ onNavigate }) => {
                 </select>
               </div>
               <div>
-                <label className="block text-white/80 text-sm font-medium mb-2">
+                <label className="block theme-text-secondary text-sm font-medium mb-2">
                   API Key / Token
                 </label>
                 <input
                   type="password"
-                  className="glass-input w-full px-4 py-3 text-white placeholder-white/50"
+                  className="glass-input w-full px-4 py-3"
                   placeholder="Enter your API key or token"
                 />
               </div>
@@ -228,7 +224,7 @@ const MainTool = ({ onNavigate }) => {
       case 4:
         return (
           <GlassCard className="p-8">
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="text-2xl font-bold theme-text-primary mb-6">
               Select Routes to Test
             </h3>
             {state.uploadedSpec && (
@@ -239,7 +235,9 @@ const MainTool = ({ onNavigate }) => {
                       key={path}
                       className="border border-white/20 rounded-lg p-4"
                     >
-                      <h4 className="text-white font-medium mb-3">{path}</h4>
+                      <h4 className="theme-text-primary font-medium mb-3">
+                        {path}
+                      </h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                         {Object.entries(methods).map(([method, details]) => (
                           <label
@@ -266,7 +264,7 @@ const MainTool = ({ onNavigate }) => {
                             >
                               {method.toUpperCase()}
                             </span>
-                            <span className="text-white/80 text-sm">
+                            <span className="theme-text-secondary text-sm">
                               {details.summary || "No description"}
                             </span>
                           </label>
@@ -285,10 +283,10 @@ const MainTool = ({ onNavigate }) => {
           <div className="space-y-6">
             {!state.testResults && !state.isLoading && (
               <GlassCard className="p-8 text-center">
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-2xl font-bold theme-text-primary mb-4">
                   Ready to Run Tests
                 </h3>
-                <p className="text-white/70 mb-6">
+                <p className="theme-text-secondary mb-6">
                   Click the button below to start testing your API endpoints
                 </p>
                 <Button size="lg" onClick={handleRunTests} className="group">
@@ -311,7 +309,7 @@ const MainTool = ({ onNavigate }) => {
               <div className="space-y-6">
                 <GlassCard className="p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-white">
+                    <h3 className="text-2xl font-bold theme-text-primary">
                       Test Results
                     </h3>
                     <Button variant="secondary" size="sm">
@@ -322,10 +320,12 @@ const MainTool = ({ onNavigate }) => {
 
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     <div className="text-center p-4 bg-white/5 rounded-lg">
-                      <div className="text-3xl font-bold text-white mb-1">
+                      <div className="text-3xl font-bold theme-text-primary mb-1">
                         {state.testResults.summary.total}
                       </div>
-                      <div className="text-white/60 text-sm">Total Tests</div>
+                      <div className="theme-text-muted text-sm">
+                        Total Tests
+                      </div>
                     </div>
                     <div className="text-center p-4 bg-green-500/20 rounded-lg">
                       <div className="text-3xl font-bold text-green-400 mb-1">
@@ -350,7 +350,7 @@ const MainTool = ({ onNavigate }) => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-lg font-semibold text-white mb-4">
+                    <h4 className="text-lg font-semibold theme-text-primary mb-4">
                       Test Details
                     </h4>
                     {state.testResults.tests.map((test, index) => (
@@ -373,11 +373,11 @@ const MainTool = ({ onNavigate }) => {
                             >
                               {test.status.toUpperCase()}
                             </span>
-                            <span className="text-white font-medium">
+                            <span className="theme-text-primary font-medium">
                               {test.route}
                             </span>
                           </div>
-                          <div className="flex items-center gap-4 text-sm text-white/60">
+                          <div className="flex items-center gap-4 text-sm theme-text-muted">
                             <span>Status: {test.statusCode}</span>
                             <span>Time: {test.responseTime}ms</span>
                           </div>
@@ -425,7 +425,7 @@ const MainTool = ({ onNavigate }) => {
                     className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all ${
                       state.currentStep >= step.id
                         ? "bg-blue-500 border-blue-500 text-white"
-                        : "border-white/30 text-white/50"
+                        : "border-white/30 theme-text-muted"
                     }`}
                   >
                     {step.id}
@@ -434,16 +434,18 @@ const MainTool = ({ onNavigate }) => {
                     <p
                       className={`text-sm font-medium ${
                         state.currentStep >= step.id
-                          ? "text-white"
-                          : "text-white/50"
+                          ? "theme-text-primary"
+                          : "theme-text-muted"
                       }`}
                     >
                       {step.title}
                     </p>
-                    <p className="text-xs text-white/40">{step.description}</p>
+                    <p className="text-xs theme-text-muted">
+                      {step.description}
+                    </p>
                   </div>
                   {index < steps.length - 1 && (
-                    <ChevronRight className="w-5 h-5 text-white/30 mx-4" />
+                    <ChevronRight className="w-5 h-5 theme-text-muted mx-4" />
                   )}
                 </div>
               ))}

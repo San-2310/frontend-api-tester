@@ -24,13 +24,15 @@ const Header = ({ onNavigate }) => {
           <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-lg">AT</span>
           </div>
-          <span className="text-xl font-bold text-white">API Tester</span>
+          <span className="text-xl font-bold theme-text-primary">
+            API Tester
+          </span>
         </button>
 
         <nav className="hidden md:flex items-center gap-6">
           <button
             onClick={() => onNavigate("home")}
-            className="text-white/70 hover:text-white transition-colors"
+            className="theme-text-secondary hover:theme-text-primary transition-colors"
           >
             Home
           </button>
@@ -38,13 +40,13 @@ const Header = ({ onNavigate }) => {
             <>
               <button
                 onClick={() => onNavigate("tool")}
-                className="text-white/70 hover:text-white transition-colors"
+                className="theme-text-secondary hover:theme-text-primary transition-colors"
               >
                 Tool
               </button>
               <button
                 onClick={() => onNavigate("logs")}
-                className="text-white/70 hover:text-white transition-colors"
+                className="theme-text-secondary hover:theme-text-primary transition-colors"
               >
                 Logs
               </button>
@@ -71,7 +73,7 @@ const Header = ({ onNavigate }) => {
                   <Settings className="w-4 h-4" />
                 </Button>
               </button>
-              <div className="flex items-center gap-2 text-white/70">
+              <div className="flex items-center gap-2 theme-text-secondary">
                 <User className="w-4 h-4" />
                 <span className="text-sm">{user?.name}</span>
               </div>

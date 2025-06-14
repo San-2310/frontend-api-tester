@@ -58,7 +58,7 @@ const Home = ({ onNavigate }) => {
       <section className="pt-40 pb-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <div className="fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold theme-text-primary mb-6 leading-tight">
               Professional
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                 {" "}
@@ -67,7 +67,7 @@ const Home = ({ onNavigate }) => {
               <br />
               Made Simple
             </h1>
-            <p className="text-xl text-white/70 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl theme-text-secondary mb-8 max-w-3xl mx-auto leading-relaxed">
               Upload your OpenAPI specification and run comprehensive test
               suites with beautiful visualizations, security testing, and
               professional reporting - all in one elegant platform.
@@ -93,10 +93,10 @@ const Home = ({ onNavigate }) => {
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold theme-text-primary mb-4">
               Everything You Need for API Testing
             </h2>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">
+            <p className="text-xl theme-text-secondary max-w-2xl mx-auto">
               Our comprehensive platform provides all the tools you need to
               test, validate, and document your APIs.
             </p>
@@ -110,10 +110,10 @@ const Home = ({ onNavigate }) => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex justify-center mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold theme-text-primary mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-white/70 leading-relaxed">
+                <p className="theme-text-secondary leading-relaxed">
                   {feature.description}
                 </p>
               </GlassCard>
@@ -127,10 +127,10 @@ const Home = ({ onNavigate }) => {
         <div className="max-w-4xl mx-auto">
           <GlassCard className="p-12">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">
+              <h2 className="text-4xl font-bold theme-text-primary mb-4">
                 Why Choose Our Platform?
               </h2>
-              <p className="text-xl text-white/70">
+              <p className="text-xl theme-text-secondary">
                 Built by developers, for developers. Experience the difference.
               </p>
             </div>
@@ -139,7 +139,7 @@ const Home = ({ onNavigate }) => {
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{benefit}</span>
+                  <span className="theme-text-secondary">{benefit}</span>
                 </div>
               ))}
             </div>
@@ -163,9 +163,11 @@ const Home = ({ onNavigate }) => {
             <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold">AT</span>
             </div>
-            <span className="text-lg font-semibold text-white">API Tester</span>
+            <span className="text-lg font-semibold theme-text-primary">
+              API Tester
+            </span>
           </div>
-          <p className="text-white/50 text-sm">
+          <p className="theme-text-muted text-sm">
             © 2024 API Testing Engine. Built with React and modern web
             technologies.
           </p>
