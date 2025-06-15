@@ -28,7 +28,6 @@ const Settings = ({ onNavigate }) => {
     concurrentRequests: 5,
     verboseOutput: true,
     animationsEnabled: true,
-    fontSize: "medium",
   });
 
   React.useEffect(() => {
@@ -92,7 +91,6 @@ const Settings = ({ onNavigate }) => {
         concurrentRequests: 5,
         verboseOutput: true,
         animationsEnabled: true,
-        fontSize: "medium",
       });
       updateAccentColor("#00d4ff");
       if (typeof window !== "undefined") {
@@ -183,28 +181,6 @@ const Settings = ({ onNavigate }) => {
                       </button>
                     ))}
                   </div>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-lg font-medium theme-text-primary mb-1">
-                      Font Size
-                    </h3>
-                    <p className="theme-text-muted text-sm">
-                      Adjust text size for better readability
-                    </p>
-                  </div>
-                  <select
-                    value={settings.fontSize}
-                    onChange={(e) =>
-                      handleSettingChange("fontSize", e.target.value)
-                    }
-                    className="glass-input px-4 py-2"
-                  >
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="large">Large</option>
-                  </select>
                 </div>
 
                 <div className="flex items-center justify-between">
